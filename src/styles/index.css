@@ -1,0 +1,35 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+* {
+  cursor: url('/cursor.svg') 4 4, auto !important;
+}
+
+button:hover, a:hover, [role="button"]:hover, .cursor-pointer {
+  cursor: url('/cursor.svg') 4 4, pointer !important;
+}
+
+html {
+  font-size: var(--font-size);
+  background-color: #FFFF00 !important;
+}
+
+body {
+  background-color: #FFFF00 !important;
+  background-image: url('/doodles-pattern.svg');
+  background-size: 600px 600px;
+  background-attachment: fixed;
+  background-repeat: repeat;
+  color: #030213 !important;
+}
+
+.bg-grid-paper {
+  background-color: #ffffff;
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.07) 1px, transparent 1px),
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
