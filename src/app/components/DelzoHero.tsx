@@ -33,7 +33,7 @@ export function DelzoHero() {
         initial={{ rotate: -15, scale: 0 }}
         animate={isInView ? { rotate: -15, scale: 1 } : { scale: 0 }}
         whileHover={{ scale: 1.1, rotate: -10 }}
-        className={`${stickerBase} top-[12%] left-[5%] md:left-[8%]`}
+        className={`${stickerBase} top-[12%] left-[5%] md:left-[8%] hidden md:block`}
       >
         <div className="bg-[#FF6B6B] border-4 border-black p-5 shadow-[8px_8px_0px_rgba(0,0,0,1)] flex items-center gap-3">
           <Brain className="w-8 h-8 fill-black text-black" />
@@ -50,7 +50,7 @@ export function DelzoHero() {
         initial={{ rotate: 10, scale: 0 }}
         animate={isInView ? { rotate: 10, scale: 1 } : { scale: 0 }}
         whileHover={{ scale: 1.1, rotate: 15 }}
-        className={`${stickerBase} top-[18%] right-[5%] md:right-[12%]`}
+        className={`${stickerBase} top-[18%] right-[5%] md:right-[12%] hidden md:block`}
       >
         <div className="bg-[#4ECDC4] border-4 border-black p-5 shadow-[8px_8px_0px_rgba(0,0,0,1)] rounded-full flex flex-col items-center min-w-[120px]">
           <div className="bg-white border-2 border-black p-3 rounded-full mb-2">
@@ -82,7 +82,7 @@ export function DelzoHero() {
         dragConstraints={ref}
         initial={{ x: 100, opacity: 0 }}
         animate={isInView ? { x: 0, opacity: 1 } : { opacity: 0 }}
-        className={`${stickerBase} bottom-[25%] right-[8%]`}
+        className={`${stickerBase} bottom-[25%] right-[8%] hidden md:block`}
       >
         <div className="bg-[#FF9F1C] border-4 border-black p-4 shadow-[8px_8px_0px_rgba(0,0,0,1)] flex items-center gap-4 text-black font-black">
           <div className="bg-black text-[#FFFF00] p-2">
@@ -97,13 +97,13 @@ export function DelzoHero() {
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0 }}
-          className="inline-block bg-black text-[#FFFF00] px-6 py-2 mb-12 shadow-[6px_6px_0px_rgba(255,107,107,1)] -rotate-2"
+          className="inline-block bg-black text-[#FFFF00] px-4 md:px-6 py-2 mb-8 md:mb-12 shadow-[4px_4px_0px_rgba(255,107,107,1)] md:shadow-[6px_6px_0px_rgba(255,107,107,1)] -rotate-2"
         >
-          <span className="text-lg font-black tracking-widest uppercase">Creativity Unleashed</span>
+          <span className="text-sm md:text-lg font-black tracking-widest uppercase">Creativity Unleashed</span>
         </motion.div>
 
         {/* Unique Animated "DELZO" Branding */}
-        <div className="flex justify-center flex-wrap gap-4 md:gap-8 mb-16 px-4">
+        <div className="flex justify-center flex-wrap gap-2 sm:gap-4 md:gap-8 mb-8 md:mb-16 px-2 md:px-4">
           {letters.map((l, i) => (
             <motion.div
               key={l.char}
@@ -123,7 +123,7 @@ export function DelzoHero() {
               className="relative group cursor-pointer"
             >
               <div
-                className="text-[6rem] md:text-[14rem] font-black leading-none text-white transition-all duration-300"
+                className="text-[4rem] sm:text-[6rem] md:text-[14rem] font-black leading-none text-white transition-all duration-300"
                 style={{
                   WebkitTextStroke: "4px black",
                   textShadow: "10px 10px 0px #000",
@@ -176,8 +176,8 @@ export function DelzoHero() {
 
           <div className="relative group">
             {/* Tagline Box with Purple Accents */}
-            <div className="bg-white border-4 border-black p-8 shadow-[12px_12px_0px_rgba(168,85,247,1)] -rotate-1 group-hover:rotate-0 transition-transform duration-300">
-              <h2 className="text-4xl md:text-6xl font-[900] text-black leading-none tracking-tighter uppercase flex flex-col items-center">
+            <div className="bg-white border-4 border-black p-4 md:p-8 shadow-[8px_8px_0px_rgba(168,85,247,1)] md:shadow-[12px_12px_0px_rgba(168,85,247,1)] -rotate-1 group-hover:rotate-0 transition-transform duration-300">
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-[900] text-black leading-none tracking-tighter uppercase flex flex-col items-center">
                 <span className="flex items-center gap-4">
                   Think It
                   <motion.span
@@ -198,9 +198,9 @@ export function DelzoHero() {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="absolute -top-10 -right-6 md:-right-12 bg-[#A855F7] border-2 border-black p-3 shadow-[4px_4px_0px_#000] rotate-12"
+              className="absolute -top-10 -right-6 md:-right-12 bg-[#A855F7] border-2 border-black p-3 shadow-[4px_4px_0px_#000] rotate-12 hidden md:block"
             >
-              <Zap className="w-8 h-8 text-white fill-current" />
+              <Zap className="w-6 h-6 md:w-8 md:h-8 text-white fill-current" />
             </motion.div>
           </div>
 
@@ -208,23 +208,22 @@ export function DelzoHero() {
           <motion.div
             animate={{ scale: [1, 1.3, 1], rotate: [0, 90, 180] }}
             transition={{ duration: 3, repeat: Infinity }}
-            className="absolute -bottom-8 -left-8 text-black"
+            className="absolute -bottom-8 -left-8 text-black hidden md:block"
           >
             <Rocket className="w-12 h-12" />
           </motion.div>
         </motion.div>
 
 
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-10 mt-20">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-10 mt-12 md:mt-20">
           <Link to="/our-work">
             <motion.button
               whileHover={{ x: 6, y: 6 }}
               whileTap={{ scale: 0.95 }}
-              className="group relative bg-[#2ECC71] text-black border-4 border-black px-12 py-6 text-2xl font-black uppercase shadow-[10px_10px_0px_#000] hover:shadow-none transition-all flex items-center gap-3"
+              className="group relative bg-[#2ECC71] text-black border-4 border-black px-8 py-4 md:px-12 md:py-6 text-xl md:text-2xl font-black uppercase shadow-[6px_6px_0px_#000] md:shadow-[10px_10px_0px_#000] hover:shadow-none transition-all flex items-center gap-2 md:gap-3"
             >
               Our Work
-              <ArrowRight className="w-8 h-8 transition-transform group-hover:translate-x-2 text-black" />
+              <ArrowRight className="w-6 h-6 md:w-8 md:h-8 transition-transform group-hover:translate-x-2 text-black" />
             </motion.button>
           </Link>
         </div>

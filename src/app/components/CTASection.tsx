@@ -27,7 +27,17 @@ export function CTASection() {
 
   useEffect(() => {
     const cleanup = startSequence();
-    return cleanup;
+    
+    const handleStart = () => {
+      startSequence();
+    };
+
+    window.addEventListener('start-storyboard', handleStart);
+    
+    return () => {
+      cleanup();
+      window.removeEventListener('start-storyboard', handleStart);
+    };
   }, []);
 
   return (

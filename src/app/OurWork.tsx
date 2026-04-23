@@ -39,9 +39,6 @@ export function OurWork() {
               className="group bg-white border-4 border-black p-8 shadow-[12px_12px_0px_rgba(0,0,0,1)] hover:shadow-[16px_16px_0px_rgba(46,204,113,1)] transition-all flex flex-col md:flex-row gap-8 items-center"
             >
               <div className="flex-1">
-                <div className="inline-block bg-[#4ECDC4] border-2 border-black px-3 py-1 text-sm font-black uppercase mb-4 shadow-[4px_4px_0px_#000]">
-                  Client #1
-                </div>
                 <h2 className="text-4xl font-black text-black mb-4 uppercase tracking-tight">Skyscape Holidays</h2>
                 <p className="text-xl font-medium text-black/80 mb-6 font-mono">
                   A modern, immersive website built for to showcase stunning travel experiences and holiday packages.
@@ -56,7 +53,6 @@ export function OurWork() {
                 </a>
               </div>
               <div className="w-full md:w-1/2 aspect-video bg-black/5 border-4 border-black relative overflow-hidden flex items-center justify-center p-4">
-                {/* Visual placeholder for the website */}
                 <div className="w-full h-full bg-white border-2 border-black rounded-lg shadow-inner flex flex-col p-2">
                   <div className="border-b-2 border-black pb-2 mb-2 flex items-center gap-2">
                     <div className="w-3 h-3 rounded-full bg-[#FF6B6B] border border-black"></div>
@@ -64,7 +60,43 @@ export function OurWork() {
                     <div className="w-3 h-3 rounded-full bg-[#2ECC71] border border-black"></div>
                   </div>
                   <div className="flex-1 bg-gray-100 flex items-center justify-center text-center p-4">
-                    <span className="font-black text-2xl text-black opacity-30 uppercase">Skyscape<br/>Holidays.in</span>
+                    <img src="/skyscape-logo.png" alt="Skyscape Holidays" className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Santhosh NC Wedding Card */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1 }}
+              whileHover={{ y: -10, rotate: -1 }}
+              className="group bg-white border-4 border-black p-8 shadow-[12px_12px_0px_rgba(0,0,0,1)] hover:shadow-[16px_16px_0px_rgba(168,85,247,1)] transition-all flex flex-col md:flex-row-reverse gap-8 items-center"
+            >
+              <div className="flex-1">
+                <h2 className="text-4xl font-black text-black mb-4 uppercase tracking-tight">Santhosh N C Wedding</h2>
+                <p className="text-xl font-medium text-black/80 mb-6 font-mono">
+                  A beautifully crafted, emotional experience that tells a story for a truly memorable and world-class day.
+                </p>
+                <a 
+                  href="https://wedding.santhoshnc.me/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#A855F7] text-black border-4 border-black px-6 py-3 font-black uppercase shadow-[6px_6px_0px_#000] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all"
+                >
+                  Visit Website <ExternalLink className="w-5 h-5" />
+                </a>
+              </div>
+              <div className="w-full md:w-1/2 aspect-video bg-black/5 border-4 border-black relative overflow-hidden flex items-center justify-center p-4">
+                <div className="w-full h-full bg-white border-2 border-black rounded-lg shadow-inner flex flex-col p-2">
+                  <div className="border-b-2 border-black pb-2 mb-2 flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-[#FF6B6B] border border-black"></div>
+                    <div className="w-3 h-3 rounded-full bg-[#FF9F1C] border border-black"></div>
+                    <div className="w-3 h-3 rounded-full bg-[#2ECC71] border border-black"></div>
+                  </div>
+                  <div className="flex-1 bg-gray-100 flex items-center justify-center text-center overflow-hidden">
+                    <img src="/wedding-preview.png" alt="Santhosh NC Wedding" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                   </div>
                 </div>
               </div>

@@ -5,12 +5,18 @@ export function TestimonialsSection() {
   const testimonials = [
     {
       name: "Elango K",
-      role: "Managing Director, Skyscape Holidays",
+      role: "Managing Director",
       company: "Skyscape Holidays",
       content: "Delzo is something truly amazing. We made our oral requests and they turned them into a high-end website that was the need of the hour.Thanks to team Delzo!",
       rating: 5,
     },
-
+    {
+      name: "Mr. Santhosh N C",
+      role: "Groom",
+      company: "Wedding Website",
+      content: "I’m genuinely amazed by the creativity and craftsmanship you’ve poured into this wedding website, it's nothing short of extraordinary. You didn’t just build a site, you created an experience that beautifully tells our story with elegance and emotion. Seeing my own mentees deliver work at this level is incredibly fulfilling and inspiring. Thanks for making my memorable day even more memorable and enjoyable with this website. Truly world-class work! 🌟",
+      rating: 5,
+    }
   ];
 
   return (
@@ -42,12 +48,12 @@ export function TestimonialsSection() {
             className="text-4xl sm:text-5xl md:text-6xl mb-6"
             style={{ fontFamily: "Space Grotesk, sans-serif", fontWeight: 700 }}
           >
-            Trusted by <span className="text-[#FFFF00]">innovators</span>
+            Voices of the <span className="text-[#FFFF00]">bold</span>
           </h2>
         </motion.div>
 
-        {/* Testimonials Grid - Centered for single card */}
-        <div className="flex justify-center px-2">
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -55,9 +61,9 @@ export function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group max-w-2xl w-full"
+              className="group w-full h-full"
             >
-              <div className="bg-white border border-black/10 rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-[1.02]">
+              <div className="bg-white border border-black/10 rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all hover:scale-[1.02] flex flex-col h-full">
                 {/* Rating Stars */}
                 <div className="flex gap-1 mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -67,36 +73,43 @@ export function TestimonialsSection() {
 
                 {/* Content */}
                 <p
-                  className="text-black/80 mb-6 text-lg leading-relaxed"
+                  className="text-black/80 mb-8 text-lg leading-relaxed flex-1"
                   style={{ fontFamily: "Inter, sans-serif", fontWeight: 400 }}
                 >
                   "{testimonial.content}"
                 </p>
 
                 {/* Author */}
-                <div className="flex items-center gap-4 pt-6 border-t border-black/10">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-black to-gray-700 flex items-center justify-center">
-                    <span
-                      className="text-white text-lg"
-                      style={{ fontFamily: "Space Grotesk, sans-serif", fontWeight: 700 }}
-                    >
-                      {testimonial.name.split(" ").map(n => n[0]).join("")}
-                    </span>
-                  </div>
-                  <div>
-                    <div
-                      className="text-black"
-                      style={{ fontFamily: "Inter, sans-serif", fontWeight: 600 }}
-                    >
-                      {testimonial.name}
+                <div className="flex items-center justify-between pt-6 border-t border-black/10 mt-auto">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-black to-gray-700 flex items-center justify-center shrink-0">
+                      <span
+                        className="text-white text-lg"
+                        style={{ fontFamily: "Space Grotesk, sans-serif", fontWeight: 700 }}
+                      >
+                        {testimonial.name.split(" ").slice(0, 2).map(n => n[0]).join("")}
+                      </span>
                     </div>
-                    <div
-                      className="text-black/60 text-sm"
-                      style={{ fontFamily: "Inter, sans-serif", fontWeight: 400 }}
-                    >
-                      {testimonial.role}
+                    <div>
+                      <div
+                        className="text-black"
+                        style={{ fontFamily: "Inter, sans-serif", fontWeight: 600 }}
+                      >
+                        {testimonial.name}
+                      </div>
+                      <div
+                        className="text-black/60 text-sm"
+                        style={{ fontFamily: "Inter, sans-serif", fontWeight: 400 }}
+                      >
+                        {testimonial.role} {testimonial.company && `• ${testimonial.company}`}
+                      </div>
                     </div>
                   </div>
+                  {testimonial.link && (
+                    <a href={testimonial.link} target="_blank" rel="noopener noreferrer" className="ml-4 p-2 rounded-full border border-black/10 hover:bg-[#FFFF00] hover:border-black transition-colors shrink-0">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>

@@ -16,10 +16,10 @@ export default function App() {
         <DelzoNavbar />
         <CTASection />
         <DelzoHero />
-        <AboutSection />
         <ServicesSection />
         <WhyDelzo />
         <ProductSection />
+        <AboutSection />
         <TestimonialsSection />
       <DelzoFooter />
       </div>

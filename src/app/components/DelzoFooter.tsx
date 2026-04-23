@@ -5,9 +5,9 @@ export function DelzoFooter() {
     <footer className="bg-transparent text-black py-16">
       <div className="max-w-7xl mx-auto px-6">
         {/* Top Section */}
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-12 mb-16">
           {/* Brand */}
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <div className="flex items-center mb-4 group cursor-pointer hover:-translate-y-1 transition-transform inline-block">
               <img src="/dz-logo.jpg" alt="Delzo Logo" className="h-[4.5rem] w-auto rounded-lg shadow-sm" />
             </div>
@@ -26,7 +26,7 @@ export function DelzoFooter() {
           </div>
 
           {/* Company */}
-          <div>
+          <div className="col-span-1">
             <h4
               className="text-black mb-4"
               style={{ fontFamily: "Space Grotesk, sans-serif", fontWeight: 600 }}
@@ -34,37 +34,19 @@ export function DelzoFooter() {
               Company
             </h4>
             <ul className="space-y-3">
-              {["About Us", "Careers", "Blog", "Contact"].map((item) => (
-                <li key={item}>
+              {[
+                { name: "About Us", href: "#product" },
+                { name: "Blog", href: "https://medium.com/@delzo.admin" }
+              ].map((item) => (
+                <li key={item.name}>
                   <a
-                    href="#"
+                    href={item.href}
+                    target={item.href.startsWith('http') ? "_blank" : undefined}
+                    rel={item.href.startsWith('http') ? "noopener noreferrer" : undefined}
                     className="text-black/60 hover:text-[#FFFF00] transition-colors"
                     style={{ fontFamily: "Inter, sans-serif", fontWeight: 400 }}
                   >
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4
-              className="text-black mb-4"
-              style={{ fontFamily: "Space Grotesk, sans-serif", fontWeight: 600 }}
-            >
-              Services
-            </h4>
-            <ul className="space-y-3">
-              {["Full Stack Dev", "AI Solutions", "Automation", "Marketing"].map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
-                    className="text-black/60 hover:text-[#FFFF00] transition-colors"
-                    style={{ fontFamily: "Inter, sans-serif", fontWeight: 400 }}
-                  >
-                    {item}
+                    {item.name}
                   </a>
                 </li>
               ))}
@@ -72,7 +54,7 @@ export function DelzoFooter() {
           </div>
 
           {/* Contact Us */}
-          <div>
+          <div className="col-span-1">
             <h4
               className="text-black mb-4"
               style={{ fontFamily: "Space Grotesk, sans-serif", fontWeight: 600 }}

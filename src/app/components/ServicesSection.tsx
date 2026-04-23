@@ -1,12 +1,14 @@
 import { motion } from "motion/react";
+import { useState } from "react";
 import {
   Code2,
   Brain,
   Workflow,
   Gamepad2,
-  TrendingUp,
-  Megaphone,
   Palette,
+  Mail,
+  MessageCircle,
+  X
 } from "lucide-react";
 
 const services = [
@@ -16,6 +18,71 @@ const services = [
   { icon: Gamepad2, title: "Game Development", desc: "Next-gen immersive platforms." },
   { icon: Palette, title: "Branding Design", desc: "Memorable brand identities." }
 ];
+
+function ServiceCard({ service, side }: { service: typeof services[0], side: 'left' | 'right' }) {
+  const [showQuoteOptions, setShowQuoteOptions] = useState(false);
+  const Icon = service.icon;
+  
+  const whatsappNumber = "919087842931";
+  const email = "delzotech@gmail.com";
+  const message = encodeURIComponent(`Hi Delzo! I'm interested in getting a quote for ${service.title}.`);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: side === 'left' ? -30 : 30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      className="relative w-full max-w-sm"
+    >
+      {/* Connecting Pipe */}
+      <div className={`absolute ${side === 'left' ? 'right-[-2rem] md:right-[-6rem]' : 'left-[-2rem] md:left-[-6rem]'} top-1/2 -translate-y-1/2 w-8 md:w-24 h-6 bg-white border-y-4 border-black z-[-1]`}></div>
+
+      {/* The Machine Node Widget */}
+      <div className="bg-white border-4 border-black rounded-[2rem] p-6 md:p-8 shadow-[8px_8px_0px_#000] hover:-translate-y-1 hover:shadow-[12px_12px_0px_#000] transition-all relative overflow-hidden group min-h-[220px] flex flex-col">
+        <div className={`absolute ${side === 'left' ? 'top-4 right-4 w-4 h-4 bg-[#FFFF00]' : '-top-4 -right-4 w-12 h-12 bg-black/5 rotate-45 group-hover:rotate-180 duration-700'} rounded-full border-2 border-black opacity-80 transition-all`}></div>
+        
+        <Icon className="w-12 h-12 mb-4 text-black group-hover:scale-110 transition-transform" strokeWidth={1.5} />
+        <h3 className="text-2xl font-black mb-2">{service.title}</h3>
+        <p className="font-medium text-black/70 mb-6 flex-1">{service.desc}</p>
+
+        {/* Action Button Area */}
+        <div className="mt-auto pt-4 relative z-10">
+          {!showQuoteOptions ? (
+            <button 
+              onClick={() => setShowQuoteOptions(true)}
+              className="bg-[#FFFF00] text-black px-6 py-2 font-black uppercase text-xs border-2 border-black shadow-[4px_4px_0px_#000] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex items-center gap-2"
+            >
+              Get Quote
+            </button>
+          ) : (
+            <div className="flex flex-wrap gap-2 animate-in fade-in slide-in-from-bottom-2 duration-300">
+              <a 
+                href={`mailto:${email}?subject=Quote Request: ${service.title}&body=${message}`}
+                className="bg-white text-black p-2 rounded-lg border-2 border-black hover:bg-gray-100 transition-colors flex items-center gap-2 font-black text-[10px] uppercase shadow-[2px_2px_0px_#000]"
+              >
+                <Mail className="w-4 h-4" /> Mail
+              </a>
+              <a 
+                href={`https://wa.me/${whatsappNumber}?text=${message}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#25D366] text-white p-2 rounded-lg border-2 border-black hover:opacity-90 transition-opacity flex items-center gap-2 font-black text-[10px] uppercase shadow-[2px_2px_0px_#000]"
+              >
+                <MessageCircle className="w-4 h-4" /> WA
+              </a>
+              <button 
+                onClick={() => setShowQuoteOptions(false)}
+                className="p-2 text-black hover:bg-gray-100 rounded-lg transition-colors border-2 border-transparent hover:border-black"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export function ServicesSection() {
   return (
@@ -59,32 +126,13 @@ export function ServicesSection() {
           <div className="relative z-10 flex flex-col gap-24 py-10">
             {services.map((service, idx) => {
               const isEven = idx % 2 === 0;
-              const Icon = service.icon;
 
               return (
                 <div key={idx} className="flex items-center w-full relative">
 
                   {/* Left Side Container */}
-                  <div className="w-1/2 flex justify-end relative pr-8 md:pr-24">
-                    {isEven && (
-                      <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="relative w-full max-w-sm"
-                      >
-                        {/* Connecting Pipe */}
-                        <div className="absolute right-[-2rem] md:right-[-6rem] top-1/2 -translate-y-1/2 w-8 md:w-24 h-6 bg-white border-y-4 border-black z-[-1]"></div>
-
-                        {/* The Machine Node Widget */}
-                        <div className="bg-white border-4 border-black rounded-[2rem] p-8 shadow-[8px_8px_0px_#000] hover:-translate-y-1 hover:shadow-[12px_12px_0px_#000] transition-all relative overflow-hidden group">
-                          <div className="absolute top-4 right-4 w-4 h-4 rounded-full border-2 border-black bg-[#FFFF00]"></div>
-                          <Icon className="w-12 h-12 mb-4 text-black group-hover:scale-110 transition-transform" strokeWidth={1.5} />
-                          <h3 className="text-2xl font-black mb-2">{service.title}</h3>
-                          <p className="font-medium text-black/70">{service.desc}</p>
-                        </div>
-                      </motion.div>
-                    )}
+                  <div className="w-1/2 flex justify-end relative pr-4 md:pr-24">
+                    {isEven && <ServiceCard service={service} side="left" />}
                   </div>
 
                   {/* Central Valve/Junction */}
@@ -95,28 +143,8 @@ export function ServicesSection() {
                   </div>
 
                   {/* Right Side Container */}
-                  <div className="w-1/2 flex justify-start relative pl-8 md:pl-24">
-                    {!isEven && (
-                      <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="relative w-full max-w-sm"
-                      >
-                        {/* Connecting Pipe */}
-                        <div className="absolute left-[-2rem] md:left-[-6rem] top-1/2 -translate-y-1/2 w-8 md:w-24 h-6 bg-white border-y-4 border-black z-[-1]"></div>
-
-                        {/* The Machine Node Widget */}
-                        <div className="bg-white border-4 border-black rounded-[2rem] p-8 shadow-[8px_8px_0px_#000] hover:-translate-y-1 hover:shadow-[12px_12px_0px_#000] transition-all relative overflow-hidden group">
-                          {/* Inner Gear Visual */}
-                          <div className="absolute -top-4 -right-4 w-12 h-12 bg-black/5 border-2 border-black rounded-full opacity-50 block rotate-45 group-hover:rotate-180 transition-all duration-700"></div>
-
-                          <Icon className="w-12 h-12 mb-4 text-black group-hover:scale-110 transition-transform" strokeWidth={1.5} />
-                          <h3 className="text-2xl font-black mb-2">{service.title}</h3>
-                          <p className="font-medium text-black/70">{service.desc}</p>
-                        </div>
-                      </motion.div>
-                    )}
+                  <div className="w-1/2 flex justify-start relative pl-4 md:pl-24">
+                    {!isEven && <ServiceCard service={service} side="right" />}
                   </div>
 
                 </div>
