@@ -3,7 +3,7 @@ import { motion, useInView } from "motion/react";
 import { Zap, Brain, Cpu, Rocket, ArrowRight, Cog, Fingerprint } from "lucide-react";
 import { Link } from "react-router";
 
-export function DelzoHero() {
+export function HeroSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 

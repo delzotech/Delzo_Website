@@ -1,6 +1,6 @@
 import { Linkedin, Github, Instagram } from "lucide-react";
 
-export function DelzoFooter() {
+export function Footer() {
   return (
     <footer className="bg-transparent text-black py-16">
       <div className="max-w-7xl mx-auto px-6">
@@ -9,7 +9,7 @@ export function DelzoFooter() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center mb-4 group cursor-pointer hover:-translate-y-1 transition-transform inline-block">
-              <img src="/dz-logo.jpg" alt="Delzo Logo" className="h-[4.5rem] w-auto rounded-lg shadow-sm" />
+              <img src="/Logo_only.png" alt="Delzo Logo" className="h-24 w-auto object-contain" />
             </div>
             <p
               className="text-black/60 mb-6"
@@ -70,8 +70,8 @@ export function DelzoFooter() {
               </div>
               <div>
                 <div className="text-black/40 text-xs font-bold uppercase tracking-wider mb-2">Give us a ring</div>
-                <a href="tel:9087842931" className="text-black font-semibold text-sm hover:text-[#FFFF00] transition-colors inline-flex bg-black/5 px-3 py-1 rounded-md border border-black/10">
-                  +91 9087842931
+                <a href="tel:8190095181" className="text-black font-semibold text-sm hover:text-[#FFFF00] transition-colors inline-flex bg-black/5 px-3 py-1 rounded-md border border-black/10">
+                  +91 8190095181
                 </a>
               </div>
             </div>

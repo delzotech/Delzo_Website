@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 
-export function DelzoNavbar() {
+export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
@@ -18,10 +18,10 @@ export function DelzoNavbar() {
     {
       title: "Solutions",
       options: [
-        { name: "Full Stack Dev", href: "#services" },
-        { name: "AI Solutions", href: "#services" },
-        { name: "Automation", href: "#services" },
-        { name: "Marketing", href: "#services" }
+        { name: "Full Stack Dev", href: "/#services" },
+        { name: "AI Solutions", href: "/#services" },
+        { name: "Automation", href: "/#services" },
+        { name: "Our Work", href: "/our-work" }
       ]
     },
     {
@@ -33,24 +33,22 @@ export function DelzoNavbar() {
     {
       title: "About",
       options: [
-        { name: "About Us", href: "#product" },
-        { name: "Our Team", href: "#about" },
+        { name: "About Us", href: "/#product" },
+        { name: "Our Team", href: "/team" },
         { name: "Email: delzo.admin...", href: "mailto:delzo.admin@gmail.com" },
-        { name: "Call: 9087842931", href: "tel:9087842931" }
+        { name: "Call: 8190095181", href: "tel:8190095181" }
       ]
     }
   ];
 
   return (
     <nav
-      className={`absolute top-0 left-0 right-0 z-50 transition-all duration-300 pt-4 md:pt-6 px-4 md:px-6 lg:px-12 ${
-        scrolled ? "bg-white/90 backdrop-blur-md pb-4 pt-4 shadow-sm" : "bg-transparent pb-0"
-      }`}
+      className={`sticky top-0 left-0 right-0 z-[100] transition-all duration-300 px-4 md:px-6 lg:px-12 bg-white/95 backdrop-blur-md py-2 border-b-2 border-black/10 shadow-sm`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center group cursor-pointer hover:-translate-y-1 transition-transform">
-          <img src="/dz-logo.jpg" alt="Delzo Logo" className="h-10 md:h-14 lg:h-[4.5rem] w-auto rounded-lg shadow-sm" />
+          <img src="/Logo_only.png" alt="Delzo Logo" className="h-10 md:h-14 lg:h-16 w-auto object-contain" />
         </div>
 
         {/* Desktop Navigation Links */}

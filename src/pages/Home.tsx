@@ -1,32 +1,41 @@
-import { DelzoNavbar } from "./components/DelzoNavbar";
-import { DelzoHero } from "./components/DelzoHero";
-import { AboutSection } from "./components/AboutSection";
-import { ServicesSection } from "./components/ServicesSection";
-import { WhyDelzo } from "./components/WhyDelzo";
-import { ProductSection } from "./components/ProductSection";
-import { TestimonialsSection } from "./components/TestimonialsSection";
-import { CTASection } from "./components/CTASection";
-import { DelzoFooter } from "./components/DelzoFooter";
+import { Navbar } from "../components/layout/Navbar";
+import { HeroSection } from "../components/sections/HeroSection";
+import { AboutSection } from "../components/sections/AboutSection";
+import { ServicesSection } from "../components/sections/ServicesSection";
+import { CoreValues } from "../components/sections/CoreValues";
+import { ProductSection } from "../components/sections/ProductSection";
+import { TestimonialsSection } from "../components/sections/TestimonialsSection";
+import { CTASection } from "../components/sections/CTASection";
+import { Footer } from "../components/layout/Footer";
+import { Phone } from "lucide-react";
 
-export default function App() {
+export default function Home() {
   return (
     <div className="min-h-screen p-0 sm:p-4 md:p-6 lg:p-8 relative select-none max-w-[1440px] mx-auto">
-      {/* Huge inner white canvas with informative grid lines */}
       <div className="bg-grid-paper rounded-none sm:rounded-[2.5rem] w-full min-h-[calc(100vh-4rem)] overflow-hidden shadow-2xl relative flex flex-col font-sans sm:border-2 border-black/10">
-        <DelzoNavbar />
+        <Navbar />
         <CTASection />
-        <DelzoHero />
+        <HeroSection />
         <ServicesSection />
-        <WhyDelzo />
+        <CoreValues />
         <ProductSection />
         <AboutSection />
         <TestimonialsSection />
-      <DelzoFooter />
+        <Footer />
       </div>
+
+      {/* Floating Call Integration */}
+      <a
+        href="tel:+918190095181"
+        className="fixed bottom-4 left-4 md:bottom-10 md:left-10 z-[9999] w-12 h-12 md:w-16 md:h-16 bg-blue-600 border-2 md:border-4 border-black rounded-full shadow-[4px_4px_0px_#000] md:shadow-[6px_6px_0px_#000] flex items-center justify-center hover:-translate-y-2 hover:shadow-[8px_8px_0px_#000] transition-all group animate-[bounce_3s_infinite]"
+        aria-label="Call us"
+      >
+        <Phone className="w-6 h-6 md:w-8 md:h-8 text-white group-hover:scale-110 transition-transform" />
+      </a>
 
       {/* Floating WhatsApp Integration */}
       <a
-        href="https://wa.me/919087842931"
+        href="https://wa.me/918190095181?text=Hi%20Delzo!%20I%20would%20like%20to%20get%20in%20touch."
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-4 right-4 md:bottom-10 md:right-10 z-[9999] w-12 h-12 md:w-16 md:h-16 bg-[#25D366] border-2 md:border-4 border-black rounded-full shadow-[4px_4px_0px_#000] md:shadow-[6px_6px_0px_#000] flex items-center justify-center hover:-translate-y-2 hover:shadow-[8px_8px_0px_#000] transition-all group animate-[bounce_3s_infinite]"
