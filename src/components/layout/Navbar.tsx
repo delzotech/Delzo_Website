@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { Link } from "react-router";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,7 +19,7 @@ export function Navbar() {
     {
       title: "Solutions",
       options: [
-        { name: "Full Stack Dev", href: "/#services" },
+        { name: "Website Dev", href: "/#services" },
         { name: "AI Solutions", href: "/#services" },
         { name: "Automation", href: "/#services" },
         { name: "Our Work", href: "/our-work" }
@@ -27,7 +28,8 @@ export function Navbar() {
     {
       title: "Resources",
       options: [
-        { name: "Blog", href: "https://medium.com/@delzo.admin" }
+        { name: "Blog", href: "https://medium.com/@delzo.admin" },
+        { name: "FAQ", href: "/faq" }
       ]
     },
     {
@@ -36,20 +38,22 @@ export function Navbar() {
         { name: "About Us", href: "/#product" },
         { name: "Our Team", href: "/team" },
         { name: "Email: delzo.admin...", href: "mailto:delzo.admin@gmail.com" },
-        { name: "Call: 8190095181", href: "tel:8190095181" }
+        { name: "Call: 90878 42931", href: "tel:+919087842931" }
       ]
     }
   ];
 
   return (
     <nav
-      className={`sticky top-0 left-0 right-0 z-[100] transition-all duration-300 px-4 md:px-6 lg:px-12 bg-white/95 backdrop-blur-md py-2 border-b-2 border-black/10 shadow-sm`}
+      className={`sticky top-0 left-0 right-0 z-[100] transition-all duration-300 px-4 md:px-6 lg:px-12 py-1 border-b-2 ${
+        scrolled ? "bg-white/95 backdrop-blur-md border-black/10 shadow-sm" : "bg-transparent border-transparent"
+      }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center group cursor-pointer hover:-translate-y-1 transition-transform">
-          <img src="/Logo_only.png" alt="Delzo Logo" className="h-10 md:h-14 lg:h-16 w-auto object-contain" />
-        </div>
+        <Link to="/" className="flex items-center group cursor-pointer hover:-translate-y-1 transition-transform">
+          <img src="/Logo_only.png" alt="Delzo Logo" className="h-12 md:h-16 lg:h-18 w-auto object-contain" />
+        </Link>
 
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-8">
@@ -58,7 +62,7 @@ export function Navbar() {
               key={navItem.title}
               className="relative group cursor-pointer"
             >
-              <div className="text-black hover:text-black transition-colors text-sm font-bold flex items-center gap-1 py-4">
+              <div className="text-black hover:text-black transition-colors text-sm font-bold flex items-center gap-1 py-2">
                 {navItem.title}
                 <ChevronDown className="w-4 h-4 mt-0.5 opacity-50 group-hover:opacity-100 group-hover:rotate-180 transition-all duration-300" />
               </div>
@@ -90,7 +94,7 @@ export function Navbar() {
               window.dispatchEvent(new CustomEvent('start-storyboard'));
               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="hidden sm:block bg-black text-[#FFFF00] px-6 py-2.5 text-sm rounded-full hover:bg-black/80 transition-all hover:-translate-y-0.5 font-bold shadow-[4px_4px_0px_rgba(0,0,0,0.2)] border-2 border-black"
+            className="hidden sm:block bg-black text-[#FFFF00] px-6 py-2 text-sm rounded-full hover:bg-black/80 transition-all hover:-translate-y-0.5 font-bold shadow-[4px_4px_0px_rgba(0,0,0,0.2)] border-2 border-black"
           >
             Get Started
           </button>

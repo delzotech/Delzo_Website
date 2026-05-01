@@ -11,11 +11,11 @@ import { Phone } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen p-0 sm:p-4 md:p-6 lg:p-8 relative select-none max-w-[1440px] mx-auto">
-      <div className="bg-grid-paper rounded-none sm:rounded-[2.5rem] w-full min-h-[calc(100vh-4rem)] overflow-hidden shadow-2xl relative flex flex-col font-sans sm:border-2 border-black/10">
+    <div className="min-h-screen p-0 relative select-none max-w-[1440px] mx-auto">
+      <div className="bg-grid-paper rounded-none sm:rounded-b-[2.5rem] w-full min-h-screen overflow-hidden shadow-2xl relative flex flex-col font-sans sm:border-x-2 sm:border-b-2 border-black/10">
         <Navbar />
-        <CTASection />
         <HeroSection />
+        <CTASection />
         <ServicesSection />
         <CoreValues />
         <ProductSection />
@@ -26,7 +26,7 @@ export default function Home() {
 
       {/* Floating Call Integration */}
       <a
-        href="tel:+918190095181"
+        href="tel:+919087842931"
         className="fixed bottom-4 left-4 md:bottom-10 md:left-10 z-[9999] w-12 h-12 md:w-16 md:h-16 bg-blue-600 border-2 md:border-4 border-black rounded-full shadow-[4px_4px_0px_#000] md:shadow-[6px_6px_0px_#000] flex items-center justify-center hover:-translate-y-2 hover:shadow-[8px_8px_0px_#000] transition-all group animate-[bounce_3s_infinite]"
         aria-label="Call us"
       >

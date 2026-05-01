@@ -20,7 +20,7 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <section className="relative py-32 bg-white overflow-hidden">
+    <section className="relative py-12 md:py-16 bg-white overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div
@@ -39,7 +39,7 @@ export function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <div className="inline-block bg-transparent text-black px-6 py-2 rounded-full mb-6">
             <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 600 }}>Testimonials</span>

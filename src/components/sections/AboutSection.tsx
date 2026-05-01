@@ -20,7 +20,7 @@ export function AboutSection() {
   );
 
   return (
-    <section id="about" className="relative py-24 md:py-40 bg-transparent overflow-hidden">
+    <section className="relative py-12 bg-white overflow-hidden">
       <div className="relative z-10 w-full max-w-[90rem] mx-auto px-6">
         
         <div className="flex flex-col items-center gap-4 md:gap-8 w-full text-center">
@@ -39,7 +39,7 @@ export function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="mt-12 md:mt-20"
+            className="text-center mb-8"
           >
             <Link to="/team">
               <motion.button 

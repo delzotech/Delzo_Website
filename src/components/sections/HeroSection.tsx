@@ -20,7 +20,7 @@ export function HeroSection() {
   return (
     <section
       ref={ref}
-      className="relative w-full min-h-[95vh] pt-48 pb-32 flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-[#FFFF00] border-b-8 border-black font-['Space_Grotesk',sans-serif]"
+      className="relative w-full min-h-screen md:min-h-[80vh] pt-24 pb-12 md:pt-32 md:pb-16 flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-[#FFFF00] border-b-8 border-black font-['Space_Grotesk',sans-serif]"
       style={{
         backgroundImage: `radial-gradient(circle, #000 1.5px, transparent 1.5px)`,
         backgroundSize: "32px 32px",
@@ -33,13 +33,13 @@ export function HeroSection() {
         initial={{ rotate: -15, scale: 0 }}
         animate={isInView ? { rotate: -15, scale: 1 } : { scale: 0 }}
         whileHover={{ scale: 1.1, rotate: -10 }}
-        className={`${stickerBase} top-[12%] left-[5%] md:left-[8%] hidden md:block`}
+        className={`${stickerBase} top-[10%] left-[2%] md:left-[8%] block scale-75 md:scale-100`}
       >
-        <div className="bg-[#FF6B6B] border-4 border-black p-5 shadow-[8px_8px_0px_rgba(0,0,0,1)] flex items-center gap-3">
-          <Brain className="w-8 h-8 fill-black text-black" />
+        <div className="bg-[#FF6B6B] border-2 md:border-4 border-black p-3 md:p-5 shadow-[4px_4px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_rgba(0,0,0,1)] flex items-center gap-2 md:gap-3">
+          <Brain className="w-5 h-5 md:w-8 md:h-8 fill-black text-black" />
           <div className="text-left leading-tight">
-            <span className="font-black text-xs uppercase block text-black opacity-60 font-mono">NODE SYSTEM</span>
-            <span className="font-black text-xl tracking-tighter uppercase text-black">Neural Arch</span>
+            <span className="font-black text-[8px] md:text-xs uppercase block text-black opacity-60 font-mono">NODE SYSTEM</span>
+            <span className="font-black text-sm md:text-xl tracking-tighter uppercase text-black">Neural Arch</span>
           </div>
         </div>
       </motion.div>
@@ -50,13 +50,13 @@ export function HeroSection() {
         initial={{ rotate: 10, scale: 0 }}
         animate={isInView ? { rotate: 10, scale: 1 } : { scale: 0 }}
         whileHover={{ scale: 1.1, rotate: 15 }}
-        className={`${stickerBase} top-[18%] right-[5%] md:right-[12%] hidden md:block`}
+        className={`${stickerBase} top-[15%] right-[2%] md:right-[12%] block scale-75 md:scale-100`}
       >
-        <div className="bg-[#4ECDC4] border-4 border-black p-5 shadow-[8px_8px_0px_rgba(0,0,0,1)] rounded-full flex flex-col items-center min-w-[120px]">
-          <div className="bg-white border-2 border-black p-3 rounded-full mb-2">
-            <Cpu className="w-10 h-10 text-black animate-pulse" />
+        <div className="bg-[#4ECDC4] border-2 md:border-4 border-black p-3 md:p-5 shadow-[4px_4px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_rgba(0,0,0,1)] rounded-full flex flex-col items-center min-w-[100px] md:min-w-[120px]">
+          <div className="bg-white border-2 border-black p-2 md:p-3 rounded-full mb-1 md:mb-2">
+            <Cpu className="w-6 h-6 md:w-10 md:h-10 text-black animate-pulse" />
           </div>
-          <span className="font-black text-sm uppercase text-black tracking-widest font-mono">AI OPTIMIZED</span>
+          <span className="font-black text-[10px] md:text-sm uppercase text-black tracking-widest font-mono">AI OPTIMIZED</span>
         </div>
       </motion.div>
 
@@ -92,14 +92,29 @@ export function HeroSection() {
         </div>
       </motion.div>
 
+      {/* Grow Your Business Sticker */}
+      <motion.div
+        drag
+        dragConstraints={ref}
+        initial={{ rotate: 10, scale: 0 }}
+        animate={isInView ? { rotate: 10, scale: 1 } : { scale: 0 }}
+        whileHover={{ scale: 1.1, rotate: 5 }}
+        className={`${stickerBase} bottom-[10%] right-[4%] md:bottom-[15%] md:right-[20%] block md:hidden scale-90 md:scale-100`}
+      >
+        <div className="bg-[#2ECC71] border-2 md:border-4 border-black px-4 py-3 md:px-6 md:py-4 shadow-[4px_4px_0px_#000] md:shadow-[8px_8px_0px_#000] rounded-xl flex items-center gap-3">
+          <Rocket className="w-6 h-6 md:w-8 md:h-8 text-black" />
+          <span className="font-black text-sm md:text-xl uppercase text-black tracking-tighter">Grow your business with us</span>
+        </div>
+      </motion.div>
+
       {/* Main Content Area */}
       <div className="max-w-7xl mx-auto z-10 relative">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0 }}
-          className="inline-block bg-black text-[#FFFF00] px-4 md:px-6 py-2 mb-8 md:mb-12 shadow-[4px_4px_0px_rgba(255,107,107,1)] md:shadow-[6px_6px_0px_rgba(255,107,107,1)] -rotate-2"
+          className="inline-block bg-black text-[#FFFF00] px-3 md:px-6 py-1.5 md:py-2 mb-6 md:mb-12 shadow-[4px_4px_0px_rgba(255,107,107,1)] md:shadow-[6px_6px_0px_rgba(255,107,107,1)] -rotate-2"
         >
-          <span className="text-sm md:text-lg font-black tracking-widest uppercase">Creativity Unleashed</span>
+          <span className="text-xs md:text-lg font-black tracking-widest uppercase">Creativity Unleashed</span>
         </motion.div>
 
         {/* Unique Animated "DELZO" Branding */}
@@ -123,10 +138,10 @@ export function HeroSection() {
               className="relative group cursor-pointer"
             >
               <div
-                className="text-[4rem] sm:text-[6rem] md:text-[14rem] font-black leading-none text-white transition-all duration-300"
+                className="text-[3.5rem] sm:text-[6rem] md:text-[14rem] font-black leading-none text-white transition-all duration-300"
                 style={{
-                  WebkitTextStroke: "4px black",
-                  textShadow: "10px 10px 0px #000",
+                  WebkitTextStroke: "2px black",
+                  textShadow: "6px 6px 0px #000",
                 }}
               >
                 {l.char}
@@ -176,19 +191,19 @@ export function HeroSection() {
 
           <div className="relative group">
             {/* Tagline Box with Purple Accents */}
-            <div className="bg-white border-4 border-black p-4 md:p-8 shadow-[8px_8px_0px_rgba(168,85,247,1)] md:shadow-[12px_12px_0px_rgba(168,85,247,1)] -rotate-1 group-hover:rotate-0 transition-transform duration-300">
-              <h2 className="text-3xl sm:text-4xl md:text-6xl font-[900] text-black leading-none tracking-tighter uppercase flex flex-col items-center">
-                <span className="flex items-center gap-4">
+            <div className="bg-white border-4 border-black p-6 md:p-8 shadow-[8px_8px_0px_rgba(168,85,247,1)] md:shadow-[12px_12px_0px_rgba(168,85,247,1)] -rotate-1 group-hover:rotate-0 transition-transform duration-300">
+              <h2 className="text-2xl sm:text-4xl md:text-6xl font-[900] text-black leading-none tracking-tighter uppercase flex flex-col items-center">
+                <span className="flex items-center gap-2 md:gap-4">
                   Think It
                   <motion.span
                     animate={{ rotate: 360 }}
                     transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                     className="text-[#A855F7]"
                   >
-                    <Cog className="w-10 h-10 md:w-16 md:h-16" />
+                    <Cog className="w-8 h-8 md:w-16 md:h-16" />
                   </motion.span>
                 </span>
-                <span className="text-[#A855F7] mt-2 block underline decoration-8 decoration-black underline-offset-[12px]">
+                <span className="text-[#A855F7] mt-2 block underline decoration-4 md:decoration-8 decoration-black underline-offset-[8px] md:underline-offset-[12px]">
                   We Delzo It
                 </span>
               </h2>

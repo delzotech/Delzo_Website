@@ -23,7 +23,7 @@ export function ProductSection() {
   }, []);
 
   return (
-    <section id="product" className="relative py-32 bg-transparent overflow-hidden">
+    <section id="product" className="relative py-12 md:py-16 bg-transparent overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         
         {/* Section Header */}
@@ -47,7 +47,7 @@ export function ProductSection() {
           <p
             className="text-lg md:text-xl text-black/70 max-w-3xl mx-auto font-medium"
           >
-            A unified pipeline that combines automation, intelligence, and lightning speed to transform how businesses operate.
+            A robust ecosystem that combines automation, intelligence, and lightning speed to transform how businesses operate.
           </p>
         </motion.div>
 

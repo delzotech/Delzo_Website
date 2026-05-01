@@ -43,7 +43,7 @@ export function CTASection() {
   return (
     <section
       id="contact"
-      className="relative pt-20 md:pt-24 pb-12 md:pb-16 bg-transparent overflow-hidden rounded-t-[2.5rem] border-b-4 border-black"
+      className="relative pt-12 md:pt-16 pb-8 md:pb-10 bg-transparent overflow-hidden rounded-t-[2.5rem] border-b-4 border-black"
     >
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
         {/* Badge */}
@@ -169,14 +169,17 @@ export function CTASection() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                {/* Background image blurred */}
-                <motion.img
-                  src={scenes[3]}
+                {/* Background video */}
+                <motion.video
+                  src="/1.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   initial={{ scale: 1.4, filter: "blur(0px)" }}
                   animate={{ scale: 1, filter: "blur(8px)" }}
                   transition={{ duration: 1.2, ease: "easeOut" }}
                   className="absolute inset-0 w-full h-full object-cover"
-                  alt="Delzo screen"
                 />
                 <div className="absolute inset-0 bg-black/50 z-0" />
 
