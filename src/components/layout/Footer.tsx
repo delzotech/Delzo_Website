@@ -2,14 +2,14 @@ import { Linkedin, Github, Instagram } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-transparent text-black py-16">
+    <footer className="bg-transparent text-black py-8">
       <div className="max-w-7xl mx-auto px-6">
         {/* Top Section */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-12 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center mb-4 group cursor-pointer hover:-translate-y-1 transition-transform inline-block">
-              <img src="/Logo_only.png" alt="Delzo Logo" className="h-32 w-auto object-contain" />
+            <div className="flex items-center mb-2 group cursor-pointer hover:-translate-y-1 transition-transform inline-block">
+              <img src="/Logo_only.png" alt="Delzo Logo" className="h-16 w-auto object-contain" />
             </div>
             <p
               className="text-black/60 mb-6"
@@ -62,7 +62,7 @@ export function Footer() {
             >
               Contact Us
             </h4>
-            <div className="space-y-6">
+            <div className="space-y-3">
               <div>
                 <div className="text-black/40 text-xs font-bold uppercase tracking-wider mb-2">Drop an email</div>
                 <a href="mailto:delzo.admin@gmail.com" className="text-black font-semibold text-sm hover:text-[#FFFF00] transition-colors inline-flex bg-black/5 px-3 py-1 rounded-md border border-black/10">

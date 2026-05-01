@@ -1,5 +1,6 @@
 import { Navbar } from "../components/layout/Navbar";
 import { HeroSection } from "../components/sections/HeroSection";
+import { StatsSection } from "../components/sections/StatsSection";
 import { AboutSection } from "../components/sections/AboutSection";
 import { ServicesSection } from "../components/sections/ServicesSection";
 import { CoreValues } from "../components/sections/CoreValues";
@@ -8,6 +9,7 @@ import { TestimonialsSection } from "../components/sections/TestimonialsSection"
 import { CTASection } from "../components/sections/CTASection";
 import { Footer } from "../components/layout/Footer";
 import { Phone } from "lucide-react";
+import { Link } from "react-router";
 
 export default function Home() {
   return (
@@ -15,12 +17,30 @@ export default function Home() {
       <div className="bg-grid-paper rounded-none sm:rounded-b-[2.5rem] w-full min-h-screen overflow-hidden shadow-2xl relative flex flex-col font-sans sm:border-x-2 sm:border-b-2 border-black/10">
         <Navbar />
         <HeroSection />
+        <StatsSection />
         <CTASection />
         <ServicesSection />
         <CoreValues />
         <ProductSection />
         <AboutSection />
         <TestimonialsSection />
+        
+        {/* Join Delzo CTA Section */}
+        <section className="px-6 py-12 bg-[#A855F7]/10 border-y-2 border-black/5">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="text-center md:text-left">
+              <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-2 italic">Be a Part of Delzo</h3>
+              <p className="text-xl text-black/60 font-medium">Join the Delzo lab and gain real-world experience.</p>
+            </div>
+            <Link 
+              to="/collab" 
+              className="bg-black text-[#FFFF00] px-10 py-5 rounded-full font-black text-xl uppercase tracking-widest shadow-[8px_8px_0px_rgba(0,0,0,0.2)] hover:-translate-y-1 transition-all hover:shadow-[12px_12px_0px_rgba(0,0,0,0.1)] active:translate-y-0"
+            >
+              Join Delzo
+            </Link>
+          </div>
+        </section>
+
         <Footer />
       </div>
 

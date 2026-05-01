@@ -38,13 +38,22 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
       <p className="text-lg font-medium text-black/70 mb-8 flex-1 leading-relaxed">{service.desc}</p>
 
       {/* Action Area */}
-      <div className="mt-auto flex flex-col gap-4">
+      <div className="mt-auto flex flex-col gap-3">
         <Link 
           to={`/services/${service.id}`}
           className="w-full bg-black text-[#FFFF00] px-8 py-4 font-black uppercase text-sm border-4 border-black shadow-[6px_6px_0px_rgba(0,0,0,0.2)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center justify-center gap-3"
         >
-          See more details <ArrowRight className="w-5 h-5 transition-transform group-hover/btn:translate-x-2" />
+          See more details <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
         </Link>
+        
+        <a 
+          href={`https://wa.me/918190095181?text=Hi! I'm interested in getting a quote for ${service.title}.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full bg-white text-black px-4 py-2 font-black uppercase text-[10px] md:text-xs border-2 border-black hover:bg-black hover:text-white transition-all flex items-center justify-center gap-2 tracking-widest"
+        >
+          Get Quote
+        </a>
       </div>
     </motion.div>
   );

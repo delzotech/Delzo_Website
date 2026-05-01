@@ -1,11 +1,32 @@
-import { useRef } from "react";
-import { motion, useInView } from "motion/react";
-import { Zap, Brain, Cpu, Rocket, ArrowRight, Cog, Fingerprint } from "lucide-react";
+import { useRef, useState, useEffect } from "react";
+import { motion, useInView, AnimatePresence } from "motion/react";
+import { Zap, Brain, Cpu, Rocket, ArrowRight, Cog, Fingerprint, Info } from "lucide-react";
 import { Link } from "react-router";
 
 export function HeroSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const [factIndex, setFactIndex] = useState(0);
+
+  const facts = [
+    "Delzo is built by students!",
+    "8 students are behind Delzo.",
+    "Delzo stands for Delivering Zone.",
+    "Delzo focuses more on execution than planning.",
+    "Every project at Delzo is built from scratch.",
+    "Delzo works like a mini startup ecosystem.",
+    "Delzo believes speed is a superpower.",
+    "Delzo builds websites that bring enquiries.",
+    "Delzo is run by creators, not developers.",
+    "Delzo is officially 1 month old today! 🚀"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setFactIndex((prev) => (prev + 1) % facts.length);
+    }, 6000); // Increased time for typing effect
+    return () => clearInterval(timer);
+  }, []);
 
   const stickerBase = "absolute z-20 cursor-grab active:cursor-grabbing select-none";
 
@@ -26,6 +47,51 @@ export function HeroSection() {
         backgroundSize: "32px 32px",
       }}
     >
+      {/* Enhanced Did You Know Ticker */}
+      <motion.div
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 1, type: "spring" }}
+        onClick={() => setFactIndex((prev) => (prev + 1) % facts.length)}
+        className="absolute top-4 left-1/2 -translate-x-1/2 z-30 flex flex-col bg-black text-[#FFFF00] rounded-xl border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,1)] min-w-[300px] md:min-w-[450px] overflow-hidden cursor-pointer group hover:scale-[1.02] transition-transform"
+      >
+        <div className="flex items-center gap-3 px-4 py-2.5">
+          <div className="bg-[#A855F7] p-1 rounded-md border border-black shrink-0 group-hover:rotate-12 transition-transform">
+            <Info className="w-4 h-4 text-white" />
+          </div>
+          <div className="flex-1 overflow-hidden h-5 flex items-center">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={factIndex}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="flex items-center gap-2"
+              >
+                <span className="text-[10px] md:text-xs font-black uppercase tracking-widest text-[#A855F7]">Fact {factIndex + 1}/{facts.length}</span>
+                <motion.p
+                  initial={{ width: 0 }}
+                  animate={{ width: "auto" }}
+                  transition={{ duration: 1.5, ease: "linear" }}
+                  className="text-[10px] md:text-sm font-black uppercase tracking-tight whitespace-nowrap overflow-hidden border-r-2 border-[#FFFF00] pr-1"
+                >
+                  {facts[factIndex]}
+                </motion.p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+        {/* Progress Bar */}
+        <div className="w-full h-1 bg-white/10">
+          <motion.div 
+            key={factIndex}
+            initial={{ width: "0%" }}
+            animate={{ width: "100%" }}
+            transition={{ duration: 6, ease: "linear" }}
+            className="h-full bg-[#A855F7]"
+          />
+        </div>
+      </motion.div>
       {/* Interactive Achievements & Pillars */}
       <motion.div
         drag

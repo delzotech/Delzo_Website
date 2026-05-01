@@ -28,6 +28,7 @@ export function Navbar() {
     {
       title: "Resources",
       options: [
+        { name: "Collab", href: "/collab" },
         { name: "Blog", href: "https://medium.com/@delzo.admin" },
         { name: "FAQ", href: "/faq" }
       ]
